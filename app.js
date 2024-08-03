@@ -124,9 +124,13 @@ $(function () {
       });
     });
 
-    // postsClass.find("h3").on("click", function () {
-    //   $("ul").slideToggle();
-    // });
+    postsClass.find("h3").on("click", function () {
+      // $("ul").slideToggle();
+      // if ()
+      // console.log(postsClass.find("h3").attr("class", "slideDown"));
+      // $(this).next().addClass("slideDown");
+      $(this).next().slideToggle();
+    });
 
     todosClass.find("h3").text(`${user.firstName}'s To Dos`);
 
@@ -149,6 +153,7 @@ $(function () {
     }
 
     todosClass.find("h3").on("click", function () {
+      // $(this).next().addClass("slideDown");
       $(this).next().slideToggle();
     });
   }
@@ -165,24 +170,14 @@ $(function () {
   }
 
   next.on("click", function () {
-    if (id > 0 && id < 30) {
-      id++;
-      // console.log(id);
-    } else if (id === 30) {
-      id = 1;
-      // console.log(id);
-    }
+    id = id === 30 ? 1 : id + 1;
+    // console.log(id);
     return build(id);
   });
 
   previous.on("click", function () {
-    if (id >= 2 && id <= 30) {
-      id--;
-      // console.log(id);
-    } else if (id === 1) {
-      id = 30;
-      // console.log(id);
-    }
+    id = id === 1 ? 30 : id - 1;
+    // console.log(id);
     return build(id);
   });
 
